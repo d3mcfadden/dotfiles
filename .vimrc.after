@@ -1,0 +1,149 @@
+" ****************************************************************************
+" General Settings
+" ****************************************************************************
+set nocompatible
+
+" By default ignore the case of searches
+set ignorecase
+
+" Default the textwidth to 78
+set tw=78
+set noexpandtab
+set sw=4 sts=4 ts=4
+
+" How to operate in insert mode for BS
+set backspace=indent,eol,start
+
+" Enhanced command-line completion
+set wildmenu
+
+" Files to ignore
+set wildignore=*.o,*.lo,*.la,#*#,.*.rej,*.rej,.*~,*~,.#*,*.class
+
+" ****************************************************************************
+" Visuals
+" ****************************************************************************
+" Show visually what is being done
+set	showcmd
+
+" Highlight our search
+set	hlsearch
+
+" Show matching brace
+set showmatch
+
+" Show me when I mess up
+set visualbell
+
+" Let me know I'm doing something
+set showmode
+
+" Show me how my search is doing
+set incsearch
+
+" Show me a ruler
+set ruler
+
+" ****************************************************************************
+" Spelling Stuff
+" ****************************************************************************
+setlocal spell spelllang=en_us
+highlight clear SpellBad
+highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
+highlight clear SpellCap
+highlight SpellCap term=underline cterm=underline
+highlight clear SpellRare
+highlight SpellRare term=underline cterm=underline
+highlight clear SpellLocal
+highlight SpellLocal term=underline cterm=underline
+
+
+" ****************************************************************************
+" Software Development
+" ****************************************************************************
+syntax enable
+
+set laststatus=2
+"set undofile
+set number
+
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
+nnoremap <leader>W :%s/\s\+$//
+nnoremap <leader>S :!php -l %:p<cr>
+
+
+" How do we format code?
+set formatoptions=tcro
+
+" ****************************************************************************
+" Keyboard Mappings
+" ****************************************************************************
+
+" c-d deletes characters in insert mode
+imap <c-d> <c-o>x
+
+" c-{jklh} moves around in insert mode
+imap <c-j> <c-o>j
+imap <c-k> <c-o>k
+imap <c-l> <c-o>l
+imap <c-h> <c-o>h
+
+" c-e moves to the end of a line
+imap <c-e> <c-o>$
+
+" c-a moves to the beginning of a line
+imap <c-a> <c-o>^
+
+" c-u undoes what you just did
+imap <c-u> <c-o>u
+
+" Navigate screens in insert mode
+imap <c-w>k <c-o><c-w>k
+imap <c-w>j <c-o><c-w>j
+imap <c-w>l <c-o><c-w>l
+imap <c-w>h <c-o><c-w>h
+
+
+" Easy splits and navigation
+nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>s <C-w>s<C-w>l
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+
+" Toggle paste
+set pastetoggle=<F7>
+
+" When you're stuck in long line hell
+map <F8> :set tw=30000<cr>
+
+" Map jj back to normal mode
+inoremap jj <ESC>
+
+
+" ****************************************************************************
+" Custom Colors
+" ****************************************************************************
+hi! Comment ctermfg=grey ctermbg=black guifg=blue guibg=black
+hi! Search ctermfg=blue ctermbg=white
+
+
+" ****************************************************************************
+" Misc Stuff
+" ****************************************************************************
+filetype plugin on
+filetype indent on
+
+color solarized
+set background=dark
+let g:solarized_termcolors=256
+
+map <Leader>t :CommandT<CR>
+map <Leader>b :CommandTBuffer<CR>
+
+map <Leader>B :BuffergatorToggle<CR>

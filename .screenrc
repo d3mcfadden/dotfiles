@@ -1,0 +1,31 @@
+vbell off
+startup_message off
+nonblock on
+#deflogin off
+defscrollback 5000
+
+bind j focus down
+bind k focus up
+bind t focus top
+bind b focus bottom
+
+altscreen on
+
+screen -t editor    1 ssh blog
+screen -t mysql     0 ssh blog
+screen -t logs      2 ssh blog
+screen -t macterm   3
+screen -t testing   4 ssh blog
+screen -t pres1   5 ssh pres
+screen -t pres2   6 ssh pres
+screen -t phpsh   6 phpsh
+
+focus
+select 1
+
+caption always "%{kc}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{kc}%?%+Lw%?"
+hardstatus on
+hardstatus alwayslastline "%{kc}%H %l %50=%D %M %d %c %Y%="
+
+sorendition	kG
+activity	"%C -> %n%f %t activity!"
