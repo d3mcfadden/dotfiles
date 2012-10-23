@@ -1,0 +1,10 @@
+[user]
+	name = Dan McFadden
+	email = d3mcfadden@gmail.com
+
+[alias]
+	st = status
+	ci = commit
+
+[color]
+	ui = true
