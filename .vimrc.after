@@ -44,6 +44,8 @@ set incsearch
 " Show me a ruler
 set ruler
 
+set smartindent
+
 " ****************************************************************************
 " Spelling Stuff
 " ****************************************************************************
@@ -125,7 +127,6 @@ map <F8> :set tw=30000<cr>
 " Map jj back to normal mode
 inoremap jj <ESC>
 
-
 " ****************************************************************************
 " Custom Colors
 " ****************************************************************************
@@ -141,9 +142,25 @@ filetype indent on
 
 color solarized
 set background=dark
+
 let g:solarized_termcolors=256
+let g:syntastic_javascript_checkers = ['eslint']
 
-map <Leader>t :CommandT<CR>
-map <Leader>b :CommandTBuffer<CR>
 
-map <Leader>B :BuffergatorToggle<CR>
+" CtrlP ignore
+set wildignore+=*/tmp/*,*/bower_components/*,*/node_modules/*
+
+au FileType ruby setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
+au FileType scss setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
+au FileType css setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
+au FileType yaml setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
+au FileType javascript setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
+au FileType html setlocal expandtab
+au FileType hbs setlocal expandtab
+
+au FileType eruby setlocal expandtab
+au FileType less setlocal expandtab
+
+au BufNewFile,BufRead *.sls set filetype=yaml
+au BufNewFile,BufRead *.raml set filetype=yaml foldmethod=indent
+
